@@ -1,9 +1,11 @@
+@use "./../../../assets/styles/variables.scss";
+
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgb(207, 207, 207);
+    background-color: variables.$color-principal-200;
     #logo{
         height: 80px;
     }

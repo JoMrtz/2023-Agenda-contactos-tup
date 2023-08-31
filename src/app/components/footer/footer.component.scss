@@ -1,4 +1,6 @@
+@use "./../../../assets/styles/variables.scss";
+
 p{
     text-align: center;
-    background-color: rgb(216, 216, 216);
+    background-color: variables.$color-principal-200;
 }

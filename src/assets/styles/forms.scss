@@ -11,7 +11,7 @@
     linear-gradient( 45deg,var(--_g)) calc(var(--s)/2) 0,
     linear-gradient(135deg,var(--_g),var(--c) 0 67%,#0000 0),        
     linear-gradient( 45deg,var(--_g),var(--c) 0 67%,#0000 0 83%,var(--c) 0 92%,#0000 0),
-    #6494eda0; /* second color */
+    variables.$color-principal-600; /* second color */
   background-size: var(--s) var(--s);
 }
 
@@ -36,7 +36,7 @@ h1{
 .form-container{
   max-width: 400px;
   border-radius: 8px;
-  background-color: white;
+  background-color: variables.$color-fondo;
   padding: 50px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
@@ -52,17 +52,21 @@ input{
 }
 
 button{
-  background-color: #6495ed;
-  color: white;
+  background-color: variables.$color-principal-800;
+  color: variables.$color-texto-invertido;
   cursor: pointer;
+  &[disabled]{
+    background-color: gray;
+    cursor:not-allowed;
+  }
 }
 
 a{
-  color:cornflowerblue;
+  color:variables.$color-principal-900;
 }
 
 .error{
-  color: rgb(255, 83, 83);
+  color: variables.$color-error;
 }
 
 .escondido{

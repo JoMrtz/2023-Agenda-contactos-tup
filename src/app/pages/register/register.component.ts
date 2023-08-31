@@ -3,17 +3,16 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class LoginComponent {
+export class RegisterComponent {
   authService = inject(AuthService)
   router = inject(Router);
 
-  login(){
-    this.authService.login();
-    this.router.navigate(["/contacts"])
+  register(){
+    this.authService.register();
+    this.router.navigate(["/login"])
   }
 }
-    

@@ -1,3 +1,31 @@
 $alto-header: 100px;
 $alto-footer: 16px;
 $alto-body: calc( 100vh - $alto-header - $alto-footer);
+
+$color-principal-50: #e2fcef;
+$color-principal-100: #b7f8d7;
+$color-principal-200: #80f3bd;
+$color-principal-300: #02eea0;
+$color-principal-400: #00e789;
+$color-principal-500: #00df75;
+$color-principal-600: #00ce69;
+$color-principal-700: #00ba5a;
+$color-principal-800: #00a84e;
+$color-principal-900: #008637;
+
+$color-acento-50: #fee3ea;
+$color-acento-100: #fcb9ca;
+$color-acento-200: #fa8ca7;
+$color-acento-300: #f65c84;
+$color-acento-400: #f2366a;
+$color-acento-500: #ee0251;
+$color-acento-600: #de004f;
+$color-acento-700: #c8004c;
+$color-acento-800: #b40049;
+$color-acento-900: #910045;
+
+$color-error: red;
+
+$color-fondo: white;
+$color-texto: rgb(36, 36, 36);
+$color-texto-invertido: rgb(254, 254, 254);
