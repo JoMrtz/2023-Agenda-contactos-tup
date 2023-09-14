@@ -11,14 +11,6 @@ import { Contacto } from 'src/app/interfaces/contacto';
 })
 export class IconoContactoComponent {
 
-  @Input() contacto:Contacto = {
-    nombre: '',
-    apellido: '',
-    direccion: '',
-    email: '',
-    img: '',
-    telefono: '',
-    empresa: ''
-  }
+  @Input({required:true}) contacto!:Contacto;
 
 }

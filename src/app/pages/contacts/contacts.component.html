@@ -1,3 +1,7 @@
 <div id="contactos-container">
-    <app-tarjeta-contacto *ngFor="let contacto of contactos" [contacto]="contacto"></app-tarjeta-contacto>
+    <app-tarjeta-contacto
+        *ngFor="let contacto of contactos"
+        [contacto]="contacto"
+        [routerLink]="[contacto.id]" 
+        ></app-tarjeta-contacto>
 </div>

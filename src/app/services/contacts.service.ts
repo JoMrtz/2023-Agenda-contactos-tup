@@ -19,14 +19,15 @@ export class ContactsService {
     throw("Método no implementado");
   };
   
-  async getAll(){
+  async getAll():Promise<Contacto[]>{
     const res = await fetch(API+"contactos.json");
     const resJson = await res.json();
     return resJson;
   };
   
-  getById(){
-    throw("Método no implementado");
+  async getById(id:number | string):Promise<Contacto | undefined>{
+    const contactos = await this.getAll()
+    return contactos.find(contacto => contacto.id == id);
   };
 
 }

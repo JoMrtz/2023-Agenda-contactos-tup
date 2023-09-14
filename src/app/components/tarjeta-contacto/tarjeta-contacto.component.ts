@@ -11,13 +11,5 @@ import { IconoContactoComponent } from "../icono-contacto/icono-contacto.compone
     imports: [CommonModule, IconoContactoComponent]
 })
 export class TarjetaContactoComponent {
-  @Input() contacto:Contacto = {
-    nombre: '',
-    apellido: '',
-    direccion: '',
-    email: '',
-    img: '',
-    telefono: '',
-    empresa: ''
-  }
+  @Input({required:true}) contacto!:Contacto;
 }
