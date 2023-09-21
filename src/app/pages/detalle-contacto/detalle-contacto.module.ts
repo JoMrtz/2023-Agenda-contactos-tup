@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DetalleContactoRoutingModule } from './detalle-contacto-routing.module';
 import { DetalleContactoComponent } from './detalle-contacto.component';
+import { IconoContactoComponent } from 'src/app/components/icono-contacto/icono-contacto.component';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { DetalleContactoComponent } from './detalle-contacto.component';
   ],
   imports: [
     CommonModule,
-    DetalleContactoRoutingModule
+    DetalleContactoRoutingModule,
+    IconoContactoComponent
   ]
 })
 export class DetalleContactoModule { }

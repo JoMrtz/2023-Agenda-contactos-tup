@@ -5,6 +5,9 @@
     border-radius: 50%;
     aspect-ratio: 1;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 img{
@@ -13,9 +16,13 @@ img{
 }
 
 #circulo-color{
-    background-color: variables.$color-principal-200;
-    aspect-ratio: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: variables.$color-principal-200;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  width: 100%;
+  span{
+    text-align: center;
+  }
 }
