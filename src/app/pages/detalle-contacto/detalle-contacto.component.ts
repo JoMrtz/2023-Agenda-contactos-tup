@@ -1,7 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Contacto } from 'src/app/interfaces/contacto';
 import { ContactsService } from 'src/app/services/contacts.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detalle-contacto',
@@ -10,7 +11,8 @@ import { ContactsService } from 'src/app/services/contacts.service';
 })
 export class DetalleContactoComponent implements OnInit{
   contactsService = inject(ContactsService);
-  activatedRoute = inject(ActivatedRoute)
+  activatedRoute = inject(ActivatedRoute);
+  router = inject(Router);
 
   contacto:Contacto = { 
     id: 0,
@@ -29,9 +31,43 @@ export class DetalleContactoComponent implements OnInit{
         if(res) this.contacto = res;
       })
     })
-
-    
   }
+    borrarContacto(){
+      Swal.fire({
+        title: '¿Querés eliminar el contacto '+this.contacto.nombre+ ' '+ this.contacto.apellido+'?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.contactsService.delete(this.contacto.id).then(res =>{
+            if(res){ //Contacto borrado
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              );
+              this.router.navigate(['contacts']);
+            } else { //Error borrando contacto
+              Swal.fire(
+                'Error borrando contacto',
+                'Intenta nuevamente.',
+                'error'
+              )
+            }
+          });
+
+         
+        }
+      })
+
+
+    }
+    
+  
   
 
 }

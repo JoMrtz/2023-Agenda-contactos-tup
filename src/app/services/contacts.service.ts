@@ -11,8 +11,12 @@ export class ContactsService {
     throw("Método no implementado");
   };
 
-  delete(){
-    throw("Método no implementado");
+  async delete(id:number):Promise<boolean>{
+    console.warn('Método no implementado')
+    const res = await fetch(API+'contactos/'+id,{
+      method:'DELETE'
+    })
+    return res.ok
   };
   
   edit(){
