@@ -7,8 +7,16 @@ import { API } from '../constants/api';
 })
 export class ContactsService {
 
-  create(){
-    throw("Método no implementado");
+  async create(contacto:Contacto):Promise<boolean>{
+    console.warn("Método no implementado");
+    const res = await fetch(API+'contactos',{
+      method:'POST',
+      headers:{
+        "Content-type":"application/json"
+      },
+      body: JSON.stringify(contacto)
+    })
+    return res.ok
   };
 
   async delete(id:number):Promise<boolean>{

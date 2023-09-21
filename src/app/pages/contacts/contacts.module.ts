@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { ContactsComponent } from './contacts.component';
-import { IconoContactoComponent } from "../../components/icono-contacto/icono-contacto.component";
 import { TarjetaContactoComponent } from "../../components/tarjeta-contacto/tarjeta-contacto.component";
+import { NuevoContactoComponent } from "../../components/nuevo-contacto/nuevo-contacto.component";
 
 
 @NgModule({
@@ -14,7 +14,8 @@ import { TarjetaContactoComponent } from "../../components/tarjeta-contacto/tarj
     imports: [
         CommonModule,
         ContactsRoutingModule,
-        TarjetaContactoComponent
+        TarjetaContactoComponent,
+        NuevoContactoComponent
     ]
 })
 export class ContactsModule { }

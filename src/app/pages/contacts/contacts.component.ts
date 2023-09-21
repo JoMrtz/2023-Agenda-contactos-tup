@@ -10,7 +10,6 @@ import { ContactsService } from 'src/app/services/contacts.service';
 export class ContactsComponent implements OnInit {
 
   contactsService = inject(ContactsService);
-  
   contactos:Contacto[] = []
 
   ngOnInit(): void {
