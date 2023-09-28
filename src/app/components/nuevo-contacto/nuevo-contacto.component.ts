@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Contacto } from 'src/app/interfaces/contacto';
 import { FormsModule } from '@angular/forms';
 import { ContactsService } from 'src/app/services/contacts.service';
-import Swal from 'sweetalert2';
+import { generarMensajeError, generarMensajeExito } from 'src/app/helpers/mensajes';
 
 @Component({
   selector: 'app-nuevo-contacto',
@@ -15,36 +15,40 @@ import Swal from 'sweetalert2';
 export class NuevoContactoComponent {
   contactsService = inject(ContactsService);
   @Output() cerrar = new EventEmitter();
-
-  nuevoContacto:Contacto = {
+  @Input() contacto:Contacto = {
     id: 0,
-    nombre: 'aa',
-    apellido: 'bb',
-    direccion: 'cc',
-    email: 'dd',
-    img: 'ee',
-    telefono: 'aa',
-    empresa: 'ss'
+    nombre: '',
+    apellido: '',
+    direccion: '',
+    email: '',
+    img: '',
+    telefono: '',
+    empresa: ''
+  }
+
+  async onSubmit(){
+    this.contacto.id ?
+    this.editarContacto() :
+    this.agregarContacto();
   }
 
   async agregarContacto(){
-    const res = await this.contactsService.create(this.nuevoContacto);
+    const res = await this.contactsService.create(this.contacto);
+    this.cerrar.emit();
     if(res){
-      this.cerrar.emit();
-      Swal.fire({
-        title: 'Contacto agregado',
-        timer: 2000,
-        showConfirmButton: false,
-        icon: "success",
-        toast: true,
-        position: 'bottom'
-      })
+      generarMensajeExito('Contacto agregado');
     } else {
-      this.cerrar.emit();
-      Swal.fire({
-        title: 'Error agregando contacto',
-        icon: "error",
-      })
+      generarMensajeError('Error agregando contacto');
+    }
+  }
+
+  async editarContacto(){
+    const res = await this.contactsService.edit(this.contacto);
+    this.cerrar.emit();
+    if(res){
+      generarMensajeExito('Contacto editado');
+    } else {
+      generarMensajeError('Error editando contacto');
     }
   }
 

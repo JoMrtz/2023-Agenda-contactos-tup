@@ -15,4 +15,8 @@
     </li>
     </ul>
     <button (click)="borrarContacto()">Borrar</button>
+    <button (click)="modalEditar.showModal()">Editar</button>
+    <dialog method="modal" #modalEditar>
+      <app-nuevo-contacto (cerrar)="modalEditar.close()" [contacto]="contacto"></app-nuevo-contacto>
+    </dialog> 
 </div>
