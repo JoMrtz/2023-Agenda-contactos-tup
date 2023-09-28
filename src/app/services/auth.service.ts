@@ -5,11 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  login(){
+  async isLoggedIn():Promise<boolean>{
+    return true;
+  }
+
+  async login(){
     console.log("LOGUEANDO")
   }
 
-  register(){
+  async register(){
     console.log("REGISTRANDO")
   }
 
