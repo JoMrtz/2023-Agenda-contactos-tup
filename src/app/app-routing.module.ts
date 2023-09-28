@@ -28,7 +28,11 @@ const routes: Routes = [
     path: "",
     redirectTo: 'contacts',
     pathMatch: "full"
-  }
+  },
+  {
+    path:"**",
+    loadChildren: ()=> import('./pages/error/error.module').then(m => m.ErrorModule)
+  },
 ];
 
 @NgModule({
