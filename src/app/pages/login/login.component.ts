@@ -11,6 +11,11 @@ export class LoginComponent {
   authService = inject(AuthService)
   router = inject(Router);
 
+  loginData= {
+    user:"",
+    password: ""
+  }
+
   login(){
     this.authService.login();
     this.router.navigate(["/contacts"])

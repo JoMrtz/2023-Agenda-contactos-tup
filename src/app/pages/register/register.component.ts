@@ -11,6 +11,13 @@ export class RegisterComponent {
   authService = inject(AuthService)
   router = inject(Router);
 
+  registerData = {
+    user: "",
+    password: "",
+    password2: "",
+    email: ""
+  }
+
   register(){
     this.authService.register();
     this.router.navigate(["/login"])

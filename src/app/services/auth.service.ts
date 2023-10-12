@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   async isLoggedIn():Promise<boolean>{
-    return true;
+    return false;
   }
 
   async login(){
