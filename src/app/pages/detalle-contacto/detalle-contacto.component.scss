@@ -1,3 +1,5 @@
+@use "./../../../assets/styles/variables.scss";
+
 #top{
   display: flex;
   align-items: center;
@@ -38,7 +40,18 @@ li{
 }
 
 #botones-container{
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
   gap: 10px;
+}
+
+@media (width < variables.$bp-mobile){
+  .container-chico{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #top{
+    text-align: center;
+  }
 }

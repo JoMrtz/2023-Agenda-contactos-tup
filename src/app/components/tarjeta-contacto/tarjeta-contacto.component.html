@@ -1,8 +1,7 @@
 <div class="tarjeta-contacto">
     <app-icono-contacto [contacto]="contacto"></app-icono-contacto>
-    <p>{{contacto.nombre}}</p>
-    <p>{{contacto.apellido}}</p>
-    <p>{{contacto.email}}</p>
+    <p>{{contacto.nombre}} {{contacto.apellido}}</p>
+    <p class="hide-mobile">{{contacto.email}}</p>
     <p>{{contacto.telefono}}</p>
-    <p>{{contacto.empresa}}</p>
+    <p class="hide-mobile">{{contacto.empresa}}</p>
 </div>

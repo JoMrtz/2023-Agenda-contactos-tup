@@ -4,6 +4,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  // flex-wrap: wrap;
   padding: 10px 20px;
   background-color: variables.$color-principal-200;
   #logo {
@@ -33,4 +34,10 @@ header {
 
 .active {
   font-weight: bold;
+}
+
+@media (width < variables.$bp-mobile){
+  header #logo{
+    height: 40px;
+  }
 }

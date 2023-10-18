@@ -3,8 +3,9 @@
 .tarjeta-contacto{
     padding: 10px 5px;
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr 4fr 3fr 3fr;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
     cursor: pointer;
+    align-items: center;
     app-icono-contacto{
         width: 50%;
         margin: auto;
@@ -12,4 +13,10 @@
     &:hover{
         background-color: variables.$color-acento-200;
     }
+}
+
+@media (width < variables.$bp-mobile){
+  .tarjeta-contacto{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

@@ -1,5 +1,9 @@
 # 2023AgendaContactos
 
+# Tareas pendientes
+* Página home
+* Conectar backend producción
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
 
 ## Development server

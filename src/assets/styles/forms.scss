@@ -4,12 +4,12 @@
   /* Sacado de https://css-pattern.com/ */
   --s: 200px; /* control the size */
   --c: #fff; /* first color */
-  
+
   --_g: #0000 8%,var(--c) 0 17%,#0000 0 58%;
-  background: 
+  background:
     linear-gradient(135deg,#0000 20.5%,var(--c) 0 29.5%,#0000 0) 0 calc(var(--s)/4),
     linear-gradient( 45deg,var(--_g)) calc(var(--s)/2) 0,
-    linear-gradient(135deg,var(--_g),var(--c) 0 67%,#0000 0),        
+    linear-gradient(135deg,var(--_g),var(--c) 0 67%,#0000 0),
     linear-gradient( 45deg,var(--_g),var(--c) 0 67%,#0000 0 83%,var(--c) 0 92%,#0000 0),
     variables.$color-principal-600; /* second color */
   background-size: var(--s) var(--s);
@@ -90,4 +90,16 @@ a{
 
 form+p, form p{
   text-align: center;
+}
+
+
+@media (width < variables.$bp-mobile){
+  .form-container{
+    max-width: unset;
+    padding: 20px;
+    width: 100%;
+  }
+  input, button{
+    padding: 7px 15px;
+  }
 }
