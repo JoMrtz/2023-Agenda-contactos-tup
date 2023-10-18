@@ -1,4 +1,7 @@
 <header>
-    <img id="logo" src="./../../../assets/img/logo.png" alt="logo">
-    <span>Nombre empresa</span>
+    <img id="logo" src="./../../../assets/img/logo.png" alt="logo" [routerLink]="['/']" >
+    <nav>
+      <a [routerLink]="['/contacts']" routerLinkActive="active" >Contactos</a>
+      <button (click)="auth.logOut()">Logout</button>
+    </nav>
 </header>

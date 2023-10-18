@@ -1,12 +1,36 @@
 @use "./../../../assets/styles/variables.scss";
 
-header{
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: variables.$color-principal-200;
+  #logo {
+    height: 80px;
+    cursor: pointer;
+  }
+  nav {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    justify-content: center;
     align-items: center;
-    padding: 10px 20px;
-    background-color: variables.$color-principal-200;
-    #logo{
-        height: 80px;
+    > * {
+      font-size: large;
+      color: variables.$color-texto;
+      line-height: 20px;
+      background-color: unset;
+      border: unset;
+      text-decoration: unset;
+      padding: 16px 12px;
+      cursor: pointer;
+      &:hover {
+        background-color: variables.$color-principal-600;
+      }
     }
+  }
+}
+
+.active {
+  font-weight: bold;
 }

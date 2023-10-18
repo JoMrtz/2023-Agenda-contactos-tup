@@ -14,9 +14,11 @@
       <p>{{contacto.direccion}}</p>
     </li>
     </ul>
-    <button (click)="borrarContacto()">Borrar</button>
-    <button (click)="modalEditar.showModal()">Editar</button>
+    <div id="botones-container">
+      <button (click)="borrarContacto()">Borrar</button>
+      <button (click)="modalEditar.showModal()">Editar</button>
+    </div>
     <dialog method="modal" #modalEditar>
       <app-nuevo-contacto (cerrar)="modalEditar.close()" [contacto]="contacto"></app-nuevo-contacto>
-    </dialog> 
+    </dialog>
 </div>
