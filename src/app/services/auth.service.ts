@@ -4,10 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-
-  async isLoggedIn():Promise<boolean>{
-    return false;
+  constructor(){
+    this.isLoggedIn = true;
   }
+
+  isLoggedIn:boolean = false;
+
 
   async login(){
     console.log("LOGUEANDO")
