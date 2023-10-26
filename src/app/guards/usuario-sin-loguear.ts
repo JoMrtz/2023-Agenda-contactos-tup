@@ -4,7 +4,7 @@ import { AuthService } from '../services/auth.service';
 
 export const usuarioSinLoguear: CanActivateFn = async (route, state) => {
   const auth = inject(AuthService);
-  const logueado = auth.isLoggedIn;
+  const logueado = auth.token;
     if(logueado){
     const router = inject(Router);
     router.navigate(['contacts']);
