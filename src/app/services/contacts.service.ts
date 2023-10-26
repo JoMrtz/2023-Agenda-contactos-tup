@@ -2,12 +2,12 @@ import { Injectable, inject } from '@angular/core';
 import { Contacto } from '../interfaces/contacto';
 import { API } from '../constants/api';
 import { AuthService } from './auth.service';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContactsService {
-  auth = inject(AuthService);
+export class ContactsService extends ApiService {
 
   async create(contacto:Contacto):Promise<boolean>{
     if(contacto.id) return false;
@@ -46,21 +46,13 @@ export class ContactsService {
   };
   
   async getAll():Promise<Contacto[]>{
-    const res = await fetch(API+"Contact",{
-      headers: {
-        Authorization: "Bearer "+this.auth.token
-      }
-    });
+    const res = await this.getAuth("Contact")
     const resJson = await res.json();
     return resJson;
   };
   
   async getById(id:number | string):Promise<Contacto | undefined>{
-    const res = await fetch(API+"Contact/"+id,{
-      headers: {
-        Authorization: "Bearer "+this.auth.token
-      }
-    });
+    const res = await this.getAuth("Contact/"+id);
     const resJson = await res.json();
     return resJson[0];
   };

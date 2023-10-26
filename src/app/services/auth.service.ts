@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { API } from '../constants/api';
 import { LoginData, RegisterData } from '../interfaces/user';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class AuthService {
   constructor(){
     this.token = localStorage.getItem('token');
   }
-
+  router = inject(Router);
   token:string | null;
 
   async login(loginData:LoginData){
@@ -37,6 +38,7 @@ export class AuthService {
   }
 
   logOut(){
-
+    localStorage.removeItem("token");
+    this.router.navigate(["/"]);
   }
 }

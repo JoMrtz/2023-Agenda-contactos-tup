@@ -21,7 +21,7 @@ export class LoginComponent {
   login(){
     this.authService.login(this.loginData).then(res => {
       if(res) this.router.navigate(["/contacts"]);
-      console.log('Error autenticando');
+      else console.log('Error autenticando');
     });
     //
   }
