@@ -1,7 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Contacto } from '../interfaces/contacto';
 import { API } from '../constants/api';
-import { AuthService } from './auth.service';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -23,7 +22,7 @@ export class ContactsService extends ApiService {
   };
 
   async delete(id:number):Promise<boolean>{
-    const res = await fetch(API+'contactos/'+id,{
+    const res = await fetch(API+'Contact/'+id,{
       method:'DELETE',
       headers:{
         Authorization: "Bearer "+this.auth.token
