@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, Signal, WritableSignal, inject, signal } from '@angular/core';
 import { API } from '../constants/api';
 import { LoginData, RegisterData } from '../interfaces/user';
 import { Router } from '@angular/router';
@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   constructor(){
-    this.token = localStorage.getItem('token');
+    this.token.set(localStorage.getItem('token'));
   }
   router = inject(Router);
-  token:string | null;
+  token:WritableSignal<string | null> = signal(null);
 
   async login(loginData:LoginData){
     const res = await fetch(API+"authentication/authenticate", {
@@ -25,7 +25,7 @@ export class AuthService {
     const tokenRecibido = await res.text()
     console.log("LOGUEANDO",tokenRecibido)
     localStorage.setItem("token",tokenRecibido);
-    this.token = tokenRecibido;
+    this.token.set(tokenRecibido);
     return true;
   }
 
@@ -35,9 +35,11 @@ export class AuthService {
       body: JSON.stringify(registerData)
     });
     console.log("REGISTRANDO",res)
+    return res
   }
 
   logOut(){
+    this.token.set(null);
     localStorage.removeItem("token");
     this.router.navigate(["/"]);
   }
