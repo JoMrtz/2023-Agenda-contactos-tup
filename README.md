@@ -1,8 +1,4 @@
-# 2023AgendaContactos
-
-# Tareas pendientes
-* Página home
-* Conectar backend producción
+# 2023 Agenda Contactos
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
 
