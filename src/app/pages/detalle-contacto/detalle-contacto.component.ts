@@ -25,7 +25,7 @@ export class DetalleContactoComponent implements OnInit{
     company: '',
     userId: 0
   }
-  
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params =>{
       this.contactsService.getById(params['id']).then(res => {
@@ -60,15 +60,13 @@ export class DetalleContactoComponent implements OnInit{
               )
             }
           });
-
-         
         }
       })
 
 
     }
-    
-  
-  
+
+
+
 
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { usuarioLogueadoGuard } from './guards/usuario-logueado.guard';
-import { usuarioSinLoguear } from './guards/usuario-sin-loguear';
+import { usuarioSinLoguear } from './guards/usuario-sin-loguear.guard';
 
 const routes: Routes = [
   {
