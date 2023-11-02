@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginData } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent {
   authService = inject(AuthService)
   router = inject(Router);
-
+  errorLogin = signal(false)
 
   loginData: LoginData= {
     nombreDeUsuario:"",
@@ -19,11 +19,10 @@ export class LoginComponent {
   }
 
   login(){
+    this.errorLogin.set(false);
     this.authService.login(this.loginData).then(res => {
       if(res) this.router.navigate(["/contacts"]);
-      else console.log('Error autenticando');
+      else this.errorLogin.set(true);
     });
-    //
   }
 }
-    
