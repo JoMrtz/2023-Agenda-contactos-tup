@@ -11,7 +11,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent {
   authService = inject(AuthService)
   router = inject(Router);
-  errorLogin = signal(false)
+  errorLogin = signal(false);
+  cargando = signal(false);
 
   loginData: LoginData= {
     username:"",
@@ -20,9 +21,13 @@ export class LoginComponent {
 
   login(){
     this.errorLogin.set(false);
+    this.cargando.set(true);
     this.authService.login(this.loginData).then(res => {
       if(res) this.router.navigate(["/contacts"]);
-      else this.errorLogin.set(true);
+      else {
+        this.errorLogin.set(true)
+      };
+      this.cargando.set(false);
     });
   }
 }

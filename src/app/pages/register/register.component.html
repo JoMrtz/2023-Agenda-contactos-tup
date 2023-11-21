@@ -18,6 +18,7 @@
             <input type="password" name="password" id="password" placeholder="Contraseña" autocomplete="current-password" minlength="8" [(ngModel)]="registerData.password" #password="ngModel">
             <p class="error" *ngIf="password.invalid && (password.touched || password.dirty)">Ingrese una contraseña válida</p>
             <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+            <img class="spinner" src="./../../../assets/img/icons/spinner.svg" alt="cargando" *ngIf="cargando()">
             <p *ngIf="errorRegister()" class="error">Error en el inicio de sesión</p>
         </form>
         <p>¿Ya tenés una cuenta? - <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Iniciar sesión</a></p>

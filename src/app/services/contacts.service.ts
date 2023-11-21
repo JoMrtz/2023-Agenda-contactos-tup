@@ -37,7 +37,7 @@ export class ContactsService extends ApiService {
       method:'PUT',
       headers:{
         "Content-type":"application/json",
-        Authorization: "Bearer "+this.auth.token
+        Authorization: "Bearer "+this.auth.token()
       },
       body: JSON.stringify(contacto)
     })
