@@ -14,8 +14,8 @@ export class LoginComponent {
   errorLogin = signal(false)
 
   loginData: LoginData= {
-    nombreDeUsuario:"",
-    contrasenia: ""
+    username:"",
+    password: ""
   }
 
   login(){

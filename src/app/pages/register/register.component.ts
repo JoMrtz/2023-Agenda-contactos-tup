@@ -14,10 +14,10 @@ export class RegisterComponent {
   errorRegister: WritableSignal<boolean> = signal(false)
 
   registerData: RegisterData = {
-    nombreDeUsuario: "",
-    nombre: "",
-    apellido: "",
-    contrasenia: "",
+    username: "",
+    firstName: "",
+    lastName: "",
+    password: "",
   }
 
   async register(){
