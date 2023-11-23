@@ -1,6 +1,6 @@
 <div id="container">
-    <img *ngIf="contacto.image" src="{{contacto.image}}">
-    <div *ngIf="!contacto.image" id="circulo-color">
-        <span>{{contacto.name[0]}}{{contacto.lastName[0]}}</span>
-    </div>
+  <img *ngIf="contacto.image" src="{{ contacto.image }}" />
+  <div *ngIf="!contacto.image" id="circulo-color">
+    <span>{{ contacto.firstName[0] }}{{ contacto.lastName[0] }}</span>
+  </div>
 </div>

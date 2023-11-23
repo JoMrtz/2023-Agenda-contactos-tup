@@ -1,12 +1,11 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  auth = Inject(AuthService);
-
+  auth = inject(AuthService);
 }
