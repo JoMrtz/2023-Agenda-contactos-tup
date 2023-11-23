@@ -1,51 +1,59 @@
-import { Injectable, Signal, WritableSignal, inject, signal } from '@angular/core';
+import {
+  Injectable,
+  Signal,
+  WritableSignal,
+  inject,
+  signal,
+} from '@angular/core';
 import { API } from '../constants/api';
 import { LoginData, RegisterData } from '../interfaces/user';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  constructor(){
+  constructor() {
     this.token.set(localStorage.getItem('token'));
   }
   router = inject(Router);
-  token:WritableSignal<string | null> = signal(null);
+  token: WritableSignal<string | null> = signal(null);
 
-  async login(loginData:LoginData){
-    try{
-      const res = await fetch(API+"authentication/authenticate", {
-        method: "POST",
+  async login(loginData: LoginData) {
+    try {
+      const res = await fetch(API + 'authentication/authenticate', {
+        method: 'POST',
         headers: {
-          "Content-Type":"application/json"
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(loginData)
-      })
-      if(!res.ok) return false;
-      const tokenRecibido = await res.text()
-      console.log("LOGUEANDO",tokenRecibido)
-      localStorage.setItem("token",tokenRecibido);
+        body: JSON.stringify(loginData),
+      });
+      if (!res.ok) return false;
+      const tokenRecibido = await res.text();
+      console.log('LOGUEANDO', tokenRecibido);
+      localStorage.setItem('token', tokenRecibido);
       this.token.set(tokenRecibido);
       return true;
-    }
-    catch{
-      return false
+    } catch {
+      return false;
     }
   }
 
-  async register(registerData: RegisterData){
-    const res = await fetch(API+"User", {
-      method: "POST",
-      body: JSON.stringify(registerData)
+  async register(registerData: RegisterData) {
+    const res = await fetch(API + 'User', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(registerData),
     });
-    console.log("REGISTRANDO",res)
-    return res
+    console.log('REGISTRANDO', res);
+    return res;
   }
 
-  logOut(){
+  logOut() {
     this.token.set(null);
-    localStorage.removeItem("token");
-    this.router.navigate(["/"]);
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
   }
 }
